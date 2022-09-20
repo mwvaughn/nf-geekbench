@@ -12,4 +12,4 @@ COPY ./rand-rw.fio /
 
 WORKDIR /data
 
-ENTRYPOINT [ "fio", "/rand-rw.fio" ]
+CMD [ "fio", "/rand-rw.fio" ]
