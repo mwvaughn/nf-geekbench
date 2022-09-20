@@ -43,9 +43,10 @@ process runFio {
     script:
 
     fio_path = "/usr/bin/fio"
+    fio_job = "/rand-rw.fio"
     """
 
-    for X in {1..1}; do ${fio_path}; done
+    for X in {1..1}; do ${fio_path} ${fio_job}; done
     """
 }
 

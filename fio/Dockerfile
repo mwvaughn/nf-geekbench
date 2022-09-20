@@ -5,11 +5,12 @@ RUN apk add --no-cache \
     sudo \
     lsblk \
     util-linux \
-    procps
+    procps \
+    bash
 
 
 COPY ./rand-rw.fio /
 
 WORKDIR /data
 
-CMD [ "fio", "/rand-rw.fio" ]
+CMD [ "/usr/bin/fio", "/rand-rw.fio" ]
