@@ -1,16 +1,11 @@
-FROM alpine
+FROM ubuntu:bionic
 
-RUN apk add --no-cache \
-    fio \
-    sudo \
-    lsblk \
+RUN apt-get -y update && \
+    apt-get -y install fio \
     util-linux \
-    procps \
-    bash
-
+    procps && \
+    apt-get -y clean
 
 COPY ./rand-rw.fio /
-
-WORKDIR /data
 
 CMD [ "/usr/bin/fio", "/rand-rw.fio" ]
