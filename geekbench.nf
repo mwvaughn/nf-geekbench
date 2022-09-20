@@ -26,6 +26,30 @@ process runGeekBench {
     """
 }
 
+process runFio {
+    
+    tag { "task: ${task.index} - ${x}" }
+    container 'mwvaughn/fio'
+
+    memory '16 GB'
+    cpus 4
+
+    input:
+      val x
+ 
+    output:
+    stdout
+
+    script:
+
+    fio_path = "/usr/bin/fio"
+    """
+
+    for X in {1..1}; do ${fio_path}; done
+    """
+}
+
 workflow {
     runGeekBench(iterator_vals)
+    runFio(iterator_vals)
 }
