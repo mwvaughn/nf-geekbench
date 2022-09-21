@@ -8,11 +8,12 @@ rwmixread=60
 rwmixwrite=40
 bs=16k
 direct=0
-numjobs=1
+numjobs=4
 time_based=1
 runtime=60
 
 [file1]
-size=10G
+size=50G
 ioengine=libaio
-iodepth=8
+iodepth=16
+
